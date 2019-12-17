@@ -1,0 +1,15 @@
+% Graph saved at Tue Dec 17 2019 18:31:13 GMT+0100 (Central European Standard Time)
+n 100 250
+n 200 250
+n 350 100
+n 350 400
+n 500 250
+n 600 250
+n 696.4695411392405 246.09375
+e 3 1 5
+e 1 2 10
+e 4 3 5
+e 2 4 7
+e 4 5 15
+e 0 1 10
+e 5 6 8

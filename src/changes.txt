@@ -1,0 +1,10 @@
+find_voisin_aux = neighbour_sub
+find_voisin = neighbour
+find_voisin_non_marque_aux = unvisited_neighbour_sub
+find_voisin_non_marque = unvisited_neighbour
+idvoisin = idneighbour
+lmarque = visited_list
+lvoisin = neighbour_list
+add_list_marque = add_visited
+chemin = path
+lchemin = path_list 
