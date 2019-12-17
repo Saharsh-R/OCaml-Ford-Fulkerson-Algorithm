@@ -14,5 +14,5 @@ To run a test:
 	type the following command:
     ./ftest.native path_to_graph_file source_node sink_node out.txt
    It should display the following message: 
-     Maximum flow value starting from node x to the node y in this graph is: z
+     Maximum flow value starting from node x to the node y in this graph is:  z
      
