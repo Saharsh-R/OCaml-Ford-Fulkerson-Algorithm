@@ -25,5 +25,5 @@ type the following command:
    
  It should display the following message: 
  
- Maximum flow value starting from node x to the node y in this graph is:  z
+ Maximum flow value starting from node x to the node y in this graph is: z
      
