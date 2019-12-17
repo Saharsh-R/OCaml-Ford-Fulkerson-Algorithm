@@ -4,7 +4,7 @@ Ford Fulkerson Algorithm implementation to find the max flow of a graph.
 ## Compilation:
 cd to the src folder in terminal and type the following command:
 
-'ocamlbuild ftest.native'
+`ocamlbuild ftest.native`
 
 It should show a "Finished" message.
 
@@ -21,9 +21,9 @@ To run a test:
 	
 type the following command:
 	
-'./ftest.native path_to_graph_file source_node sink_node out.txt'
+`./ftest.native path_to_graph_file source_node sink_node out.txt`
    
  It should display the following message: 
  
- Maximum flow value starting from node x to the node y in this graph is: z
+ `Maximum flow value starting from node x to the node y in this graph is: z`
      
