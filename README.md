@@ -26,4 +26,6 @@ type the following command:
  It should display the following message: 
  
  `Maximum flow value starting from node x to the node y in this graph is: z`
+ 
+ Note: You might have to create out.txt in the src folder
      
