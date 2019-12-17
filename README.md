@@ -1,7 +1,7 @@
 # OCaml-Ford-Fulkerson-Algorithm
 Ford Fulkerson Algorithm implementation to find the max flow of a graph.
 
-##Compilation:
+## Compilation:
 cd to the src folder in terminal and type the following command:
 
 'ocamlbuild ftest.native'
@@ -10,12 +10,12 @@ It should show a "Finished" message.
 
 You'll need to download ocamlbuild on your system to run this.
   
-##Graphs  
+## Graphs  
 I have already included 5 sample graphs in the 'in'; to create more graphs you can use the following web app:
   https://www-m9.ma.tum.de/graph-algorithms/flow-ford-fulkerson/index_en.html#tab_tg
 
 
-##Running the algorithm
+## Running the algorithm
 
 To run a test:
 	
