@@ -21,18 +21,6 @@ let add_visited visited_list element_list = List.append element_list visited_lis
 
 type flow = int 
 
-let rec visit_course graph actual visited_list final = 
-  if(actual = final && ((List.mem final visited_list) = false)) then (add_visited visited_list [final],  [final])
-  else 
-    let neighbour1 = unvisited_neighbour graph actual visited_list in
-    if(neighbour1 = []) 
-    then (add_visited visited_list [actual],  [])
-    else 
-      let child_res = (List.fold_left (fun (rand,pth) x -> match (visit_course graph x rand final) with |(randa,pthr) -> (randa, add_visited pthr pth)) (add_visited visited_list [actual], []) neighbour1 ) in 
-      match (child_res) with
-      | (x,[]) -> ((actual::x),[])
-      | (x,y) -> ((actual::x), (actual::y))
-
 let rec var_flow_sub graph path flow = 
   match path with 
   |a::b::rest ->( 
@@ -47,6 +35,18 @@ let rec var_flow_sub graph path flow =
   |[] -> flow
 
 let var_flow graph path = var_flow_sub graph path (-1);;
+
+let rec visit_course graph current visited_list target = 
+  if(current = target && ((List.mem target visited_list) = false)) then (add_visited visited_list [target],  [target])
+  else 
+    let neighbour1 = unvisited_neighbour graph current visited_list in
+    if(neighbour1 = []) 
+    then (add_visited visited_list [current],  [])
+    else 
+      let child_res = (List.fold_left (fun (rand,pth) x -> match (visit_course graph x rand target) with |(randa,pthr) -> (randa, add_visited pthr pth)) (add_visited visited_list [current], []) neighbour1 ) in 
+      match (child_res) with
+      | (x,[]) -> ((current::x),[])
+      | (x,y) -> ((current::x), (current::y))
 
 let rec continue_path node1 node2 path_list = 
   match path_list  with
@@ -67,14 +67,14 @@ let update_graph graph path_list flow =
   let nv_add_arc a b c d = (update_graph_sub a b c d path_list flow) in 
   e_fold graph nv_add_arc res_graph;;
 
-let rec loop_ff (graph,flow,depart,arrive) = 
-  match (visit_course graph depart [] arrive) with
+let rec loop_ff (graph,flow,start,ends) = 
+  match (visit_course graph start [] ends) with
   | (_,y) ->
     if (y=[]) 
-    then (graph,flow,depart,arrive)
+    then (graph,flow,start,ends)
     else (
       let vari_flow = (var_flow graph y) in 
       let nv_graph = (update_graph graph y vari_flow) in
 
-      loop_ff (nv_graph,(flow + vari_flow),depart,arrive)
+      loop_ff (nv_graph,(flow + vari_flow),start,ends)
     )
